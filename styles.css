@@ -1,0 +1,269 @@
+:root { 
+  color-scheme: light dark;
+  --primary-text: #1a1a1a;
+  --secondary-text: #555555;
+  --border-color: #767676;
+  --light-border: #d0d0d0;
+}
+
+body { 
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+  line-height: 1.6; 
+  margin: 0;
+  color: var(--primary-text);
+  background-color: #ffffff;
+}
+
+header, main, footer { 
+  max-width: 980px; 
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+header { 
+  padding-top: 28px; 
+  padding-bottom: 10px; 
+}
+
+.skip-link { 
+  position: absolute; 
+  left: -9999px; 
+  top: auto; 
+  width: 1px; 
+  height: 1px; 
+  overflow: hidden; 
+}
+
+.skip-link:focus { 
+  position: static; 
+  width: auto; 
+  height: auto; 
+  padding: 8px 10px; 
+  display: inline-block; 
+  border: 3px solid #0066cc; 
+  border-radius: 8px;
+  background-color: #fff;
+  color: #0066cc;
+}
+
+nav ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: 14px 0 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px 14px; 
+}
+
+nav a { 
+  text-decoration: underline; 
+  color: #0066cc;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1 { 
+  margin: 0 0 8px; 
+  font-size: clamp(2rem, 3.5vw, 3rem); 
+}
+
+h2 {
+  margin-top: 28px;
+}
+
+h3 {
+  margin: 0 0 8px;
+}
+
+.editors { 
+  margin: 0 0 16px; 
+  font-size: 1.05rem;
+  color: var(--secondary-text);
+}
+
+.meta { 
+  margin: 0 0 18px; 
+}
+
+.card { 
+  border: 2px solid var(--border-color); 
+  border-radius: 12px; 
+  padding: 16px; 
+}
+
+.stack > * + * { 
+  margin-top: 14px; 
+}
+
+.section-title { 
+  margin-top: 28px;
+  margin-bottom: 16px;
+}
+
+details { 
+  border: 2px solid var(--border-color); 
+  border-radius: 12px; 
+  padding: 0;
+  margin-bottom: 14px;
+}
+
+summary { 
+  cursor: pointer; 
+  padding: 14px 16px; 
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+summary:hover {
+  background-color: rgba(0, 102, 204, 0.05);
+}
+
+summary:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: -3px;
+}
+
+details[open] summary { 
+  border-bottom: 1px solid var(--border-color); 
+}
+
+.details-body { 
+  padding: 16px; 
+}
+
+.note { 
+  font-size: 0.95rem; 
+  color: var(--secondary-text);
+}
+
+.toc ol { 
+  padding-left: 18px; 
+}
+
+.talk-item, .media-item, .bio-item { 
+  padding: 12px; 
+  border: 2px solid var(--light-border); 
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.talk-item h3, .media-item h3, .bio-item h3 { 
+  margin: 0 0 8px; 
+  font-size: 1.2rem;
+}
+
+.talk-item ul, .media-item ul { 
+  margin: 0; 
+  padding-left: 18px; 
+}
+
+figure { 
+  margin: 0; 
+  display: flex; 
+  gap: 12px; 
+  align-items: flex-start; 
+}
+
+figure img { 
+  width: 120px; 
+  height: 120px; 
+  object-fit: cover; 
+  border-radius: 12px; 
+  border: 2px solid var(--light-border); 
+}
+
+figcaption { 
+  flex: 1; 
+}
+
+label { 
+  display: block; 
+  font-weight: 700; 
+  margin-top: 10px;
+  color: var(--primary-text);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+input, textarea { 
+  width: min(680px, 100%); 
+  padding: 10px; 
+  border-radius: 10px; 
+  border: 2px solid var(--border-color); 
+  font: inherit;
+  color: var(--primary-text);
+  background-color: #ffffff;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+textarea { 
+  min-height: 140px; 
+}
+
+button { 
+  padding: 10px 14px; 
+  border-radius: 10px; 
+  border: 2px solid var(--border-color); 
+  font: inherit; 
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary-text);
+  background-color: #ffffff;
+}
+
+button:hover {
+  background-color: #e8e8e8;
+}
+
+button:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+a {
+  color: #0066cc;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+footer { 
+  padding-top: 10px; 
+  padding-bottom: 28px;
+  color: var(--secondary-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
