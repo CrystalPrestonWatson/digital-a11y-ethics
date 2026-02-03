@@ -206,6 +206,14 @@ legend {
   width: 100%;
 }
 
+.section-title.no-top-margin {
+  margin-top: 0;
+}
+
+form p.button-wrapper {
+  margin-top: 16px;
+}
+
 input, textarea { 
   width: min(680px, 100%); 
   padding: 10px; 
