@@ -57,9 +57,13 @@
 
     <h2 id="accordions" class="section-title">More</h2>
 
+    <div>
+      <button aria-pressed="false" id="expandAll" onclick="openAll(this.id);">Expand all sections</button>
+    </div>
+
     <!-- TABLE OF CONTENTS -->
-    <details>
-      <summary>Table of Contents</summary>
+    <details id="details01">
+      <summary onclick="openMe('details01')">Table of Contents</summary>
       <div class="details-body toc stack">
         <p><strong>Introduction: The Digital Accessibility Gap and the Need for an Ethics Framework</strong></p>
 
@@ -114,8 +118,8 @@
       </div>
     </details>
 
-    <details>
-      <summary>Digital Accessibility Ethics Framework</summary>
+    <details id="details02">
+      <summary onclick="openMe('details02')">Digital Accessibility Ethics Framework</summary>
       <div class="details-body stack">
         <h3 id="framework">Framework overview</h3>
 
@@ -150,8 +154,8 @@
     </details>
 
     <!-- UPCOMING AUTHOR TALKS -->
-    <details>
-      <summary>Upcoming Author Talks</summary>
+    <details id="details03">
+      <summary onclick="openMe('details03')">Upcoming Author Talks</summary>
       <div class="details-body stack">
 
         <div class="talk-item">
@@ -184,8 +188,8 @@
     </details>
 
     <!-- PODCASTS + ARCHIVED TALKS -->
-    <details>
-      <summary>Podcasts and Archived Talks</summary>
+    <details id="details04">
+      <summary onclick="openMe('details04')">Podcasts and Archived Talks</summary>
       <div class="details-body stack">
 
         <div class="media-item">
@@ -209,8 +213,8 @@
     </details>
 
     <!-- AUTHOR BIOS -->
-    <details>
-      <summary>Editor and Author Bios</summary>
+    <details id="details05">
+      <summary onclick="openMe('details05')">Editor and Author Bios</summary>
       <div class="details-body stack">
 
         <div class="bio-item">
@@ -726,8 +730,8 @@
     </details>
 
     <!-- CONTACT -->
-    <details id="contact">
-      <summary>Contact the Editors and Authors</summary>
+    <details id="details06">
+      <summary onclick="openMe('details06')">Contact the Editors and Authors</summary>
       <div class="details-body stack">
         <p>
           For general inquiries:
@@ -773,5 +777,61 @@
   <footer>
     
   </footer>
+
+  <script>
+    // Accordion expand/collapse controls
+    function openAll(btnID) {
+      var dscWidgets = document.querySelectorAll("details");
+      var toggleDsc = document.getElementById(btnID);
+      var toggleState = toggleDsc.getAttribute("aria-pressed");
+      
+      if (toggleState == "true") {
+        toggleDsc.setAttribute("aria-pressed","false");
+        toggleDsc.textContent = "Expand all sections";
+        for (var i = 0; i < dscWidgets.length; i++) {
+          dscWidgets[i].removeAttribute("open");
+        }
+      } else if (toggleState == "false") {
+        toggleDsc.setAttribute("aria-pressed","true");
+        toggleDsc.textContent = "Collapse all sections";
+        for (var i = 0; i < dscWidgets.length; i++) {
+          dscWidgets[i].setAttribute("open","");
+        }
+      } else {
+        toggleDsc.setAttribute("aria-pressed","true");
+        toggleDsc.textContent = "Collapse all sections";
+        for (var i = 0; i < dscWidgets.length; i++) {
+          dscWidgets[i].setAttribute("open","");
+        }
+      }
+    }
+
+    function openMe(btnID) {
+      var dscAll = document.getElementById("expandAll");
+      var toggleDsc = document.getElementById(btnID);
+      
+      if (dscAll.getAttribute("aria-pressed") == "mixed") {
+        if (toggleDsc.open) {
+          var dscOpen = document.querySelectorAll("details[open]");
+          if (dscOpen.length == 1) {
+            dscAll.setAttribute("aria-pressed", "false");
+            dscAll.textContent = "Expand all sections";
+          }
+        } else {
+          var dscClosed = document.querySelectorAll("details:not([open])");
+          if (dscClosed.length == 1) {
+            dscAll.setAttribute("aria-pressed", "true");
+            dscAll.textContent = "Collapse all sections";
+          }
+        }
+      }
+      
+      if (dscAll.getAttribute("aria-pressed") == "true" && !toggleDsc.open) {
+        dscAll.setAttribute("aria-pressed", "mixed");
+      } else if (dscAll.getAttribute("aria-pressed") == "false" && toggleDsc.open) {
+        dscAll.setAttribute("aria-pressed", "mixed");
+      }
+    }
+  </script>
 </body>
 </html>
